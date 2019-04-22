@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
+using SalesWebMvc.Servicos;
 
 
 
@@ -43,7 +44,9 @@ namespace SalesWebMvc
             services.AddDbContext<SalesWebMvcContext>(options =>
                    options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
                         builder.MigrationsAssembly("SalesWebMvc")));
-                   //options.UseOracle(Configuration["SalesWebMvcContext"]));
+            //options.UseOracle(Configuration["SalesWebMvcContext"]));
+
+            services.AddScoped<VendedorServico>();
 
         }
 
