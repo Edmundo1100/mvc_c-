@@ -1,4 +1,4 @@
-﻿@model SalesWebMvc.Models.Vendedor
+﻿@model SalesWebMvc.Models.ViewModels.VendedorFormViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -11,22 +11,26 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <label asp-for="Vendedor.Name" class="control-label"></label>
+                <input asp-for="Vendedor.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <label asp-for="Vendedor.Email" class="control-label"></label>
+                <input asp-for="Vendedor.Email" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="DateNascimento" class="control-label"></label>
-                <input asp-for="DateNascimento" class="form-control" />
+                <label asp-for="Vendedor.DateNascimento" class="control-label"></label>
+                <input asp-for="Vendedor.DateNascimento" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="SalarioBase" class="control-label"></label>
-                <input asp-for="SalarioBase" class="form-control" />
+                <label  class="control-label">Salario Base</label>
+                <input asp-for="Vendedor.SalarioBase" class="form-control" />
             </div>
-
+            <div class="form-group">
+                <label asp-for="Vendedor.DepartmentId" class="control-label"></label>
+                <select asp-for="Vendedor.DepartmentId" asp-items="@(new SelectList(Model.Departments,"Id","Name"))" 
+                                                                        class="form-control"></select>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-default" />
             </div>

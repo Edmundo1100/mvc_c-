@@ -47,6 +47,7 @@ namespace SalesWebMvc
             //options.UseOracle(Configuration["SalesWebMvcContext"]));
 
             services.AddScoped<VendedorServico>();
+            services.AddScoped<DepartamentoServico>();
 
         }
 
